@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ketemu - Barang Hilang & Ditemukan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-in">
+    <h1>Ke<span>temu</span></h1>
+    <p>Platform barang hilang & ditemukan untuk kampus dan tempat umum.</p>
+    <div class="stats">
+      <div><b id="sH">0</b><small>Hilang</small></div>
+      <div><b id="sF">0</b><small>Ditemukan</small></div>
+      <div><b id="sD">0</b><small>Selesai</small></div>
+    </div>
+    <button class="cta" id="buka">＋ Buat Laporan</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="bar">
+    <input id="q" placeholder="🔍 Cari barang atau lokasi...">
+    <div class="chips" id="chips">
+      <button class="on" data-f="">Semua</button>
+      <button data-f="hilang">Hilang</button>
+      <button data-f="ditemukan">Ditemukan</button>
+      <button data-f="selesai">Selesai</button>
+    </div>
+  </div>
+  <div id="grid" class="grid"></div>
+</main>
+
+<dialog id="dlg">
+  <form id="form" method="dialog">
+    <div class="dh"><h2>Buat Laporan</h2><button type="button" id="tutup" class="x">✕</button></div>
+    <div class="seg">
+      <label><input type="radio" name="type" value="hilang" checked><span>😢 Kehilangan</span></label>
+      <label><input type="radio" name="type" value="ditemukan"><span>🙌 Menemukan</span></label>
+    </div>
+    <input id="name" placeholder="Nama barang" required maxlength="100">
+    <div class="row">
+      <select id="category">
+        <option>👜 Tas & Dompet</option><option>📱 Elektronik</option><option>🔑 Kunci</option>
+        <option>🪪 Dokumen & Kartu</option><option>👕 Pakaian</option><option>📦 Lainnya</option>
+      </select>
+      <input type="date" id="date" required>
+    </div>
+    <input id="location" placeholder="Lokasi (mis. Perpustakaan lt. 2)" required maxlength="150">
+    <textarea id="description" placeholder="Ciri-ciri barang" maxlength="500"></textarea>
+    <label class="up">📷 Tambah foto (opsional)<input type="file" id="photo" accept="image/*" hidden></label>
+    <img id="prev" class="prev" alt="" hidden>
+    <input id="contact" inputmode="tel" placeholder="No. WhatsApp (08xxxxxxxxxx)" required maxlength="20">
+    <p id="err" class="err" hidden></p>
+    <button class="cta full" id="kirim" type="submit">Kirim Laporan</button>
+  </form>
+</dialog>
+
+<div id="lb" class="lb" hidden><img id="lbImg" alt=""></div>
+<div id="toast" class="toast" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
